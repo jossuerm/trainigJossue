@@ -1,0 +1,72 @@
+//
+// Utils
+// --------------------------------------------------
+
+.row-centered {
+  text-align: center;
+}
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  // inline-block space fix
+  margin-right: -4px;
+  // reset the text-align
+  text-align: left;
+}
+
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.show-mobile {
+  @include breakpoint("phone-up"){
+    display: none;
+  }
+}
+
+.link-container {
+  color: $color-red;
+  font-family: "Montserrat-SemiBold";
+}
+
+.pointer-text {
+  .link-container {
+    color: $color-red;
+    font-family: "Montserrat-SemiBold";
+    margin-top: .1em;
+  }
+}
+
+.show-desktop {
+  @include breakpoint("phone") {
+    display: none;
+  }
+}
+
+.row-eq-height{
+  @include breakpoint("phone-up") {
+      display: flex;
+  }
+}
+
+//color classes for any text
+
+.red-color {
+  color: $color_red;
+}
+
+.gray-color {
+  color: $color_gray;
+}
+
+.turquoise-color {
+  color: $color-turquoise;
+}
+
+.cf {
+  @include clearfix;
+}

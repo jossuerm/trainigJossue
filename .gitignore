@@ -1,0 +1,17 @@
+# Frontend
+node_modules
+yarn.lock
+package-lock.json
+dist
+.tmp
+.sass-cache
+bower_components
+app/*.html
+app/scripts/main.js
+app/public/
+app/styles/vendors/bootstrap/scss
+app/scripts/es6/helpers/config.js
+
+/backend/vendor
+
+.DS_Store

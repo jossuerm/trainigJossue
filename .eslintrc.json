@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "$": true,
+    "ga": true
+  },
+  "rules": {
+    "no-console": 1,
+    "curly": 2,
+    "default-case": 1,
+    "eqeqeq": 2,
+    "arrow-body-style": [2, "as-needed"],
+    "arrow-spacing": [1, { "before": true, "after": true }],
+    "no-trailing-spaces": 1,
+    "space-before-blocks": [1, "always"],
+    "quotes": [2, "single", {"allowTemplateLiterals": true, "avoidEscape": true}],
+    "space-infix-ops": ["error", {"int32Hint": true}],
+    "comma-spacing": [1, {"before": false, "after": true}],
+    "space-in-parens": "error",
+    "space-before-function-paren": ["error", "never"]
+  }
+}

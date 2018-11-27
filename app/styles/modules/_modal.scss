@@ -1,0 +1,195 @@
+// sass-lint:disable-all
+// modal container
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+
+  // animate slide down
+  &.fade .modal-dialog {
+    transition: transform .3s ease-out;
+    transform: translate(0, -25%);
+  }
+  &.in .modal-dialog {
+    transform: translate(0, 0);
+  }
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// position the modal with bottom padding
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: $modal-dialog-margin;
+}
+
+// modal content
+.modal-content {
+  position: relative;
+  background-color: $modal-content-bg;
+  background-clip: padding-box;
+  border: $modal-content-border-width solid $modal-content-border-color;
+  @include border-radius(5px);
+  // Remove focus outline from opened modal
+  outline: 0;
+}
+
+// modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-bg;
+  background-color: $modal-backdrop-bg;
+
+  // fade backdrop
+  &.fade {
+    opacity: 0;
+  }
+  &.in {
+    opacity: $modal-backdrop-opacity;
+  }
+}
+
+// modal header
+.modal-header {
+  @include clearfix;
+}
+
+//modal list
+.modal-list {
+  padding-left: 15px;
+
+  li {
+    font-size: 12px;
+    color: $color-turquoise;
+    margin-bottom: em(10,12);
+
+    p {
+      color: $color_gray;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// close icon
+.modal-header .close {
+  float: right;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  margin: 6px 10px 0;
+}
+
+// title text within header
+.modal-title {
+  margin: 0;
+  line-height: $modal-title-line-height;
+}
+
+// modal body
+.modal-body {
+  position: relative;
+  padding: $modal-inner-padding;
+
+  p {
+    margin: 0 0 12px 0;
+  }
+}
+
+// modal footer
+.modal-footer {
+  padding: $modal-inner-padding;
+  text-align: right;
+  border: none;
+  @include clearfix();
+
+    a {
+      color: $color-red;
+      text-transform: uppercase;
+      margin: 0 32px 0 0;
+      cursor: pointer;
+
+      &:first-of-type {
+        float: left;
+      }
+
+      &.continue {
+        float: right;
+
+        &:after {
+          content: "";
+          position: absolute;
+          border-left: 8px solid $color_red;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          right: 30px;
+          bottom: 25px;
+        }
+      }
+    }
+}
+
+//specific modals
+#addtional-tc {
+  .modal-dialog {
+    top: 10%;
+
+    @include breakpoint('phone') {
+      top: 2%;
+      margin-bottom: em(70);
+    }
+  }
+
+  .subtitle {
+    margin-bottom: em(10,20);
+  }
+
+  .modal-body {
+    padding-bottom: em(10);
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// Scale
+@include breakpoint('phone') {
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    max-width: $modal-sm;
+    margin: 0 auto;
+    top: 30%;
+  }
+}
+
+@include breakpoint('phone-up') {
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    max-width: $modal-md;
+    margin: 0 auto;
+    top: 30%;
+  }
+
+}
+
+@include breakpoint('desktop') {
+  .modal-lg {
+    max-width: $modal-lg;
+  }
+}
+// sass-lint:enable-all
