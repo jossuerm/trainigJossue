@@ -34,9 +34,9 @@ gulp.task('php', () => {
 });
 
 gulp.task('copy_bootstrap', () => {
-  // gulp
-  //   .src(['./node_modules/bootstrap/scss/**/*.scss' ])
-  //   .pipe(gulp.dest('./app/styles/vendors/bootstrap/scss/'));
+  gulp
+    .src(['./node_modules/bootstrap/scss/**/*.scss' ])
+    .pipe(gulp.dest('./app/styles/vendors/bootstrap/scss/'));
   gulp
     .src(['./node_modules/bootstrap-select/sass/**/*.scss'])
     .pipe(gulp.dest('./app/styles/vendors/bootstrap-select/scss/'));

@@ -10,6 +10,7 @@ app/*.html
 app/scripts/main.js
 app/public/
 app/styles/vendors/bootstrap/scss
+app/styles/vendors/bootstrap-select/scss
 app/scripts/es6/helpers/config.js
 
 /backend/vendor
