@@ -101,8 +101,6 @@ gulp.task('html', ['styles'], () => {
   return gulp
     .src('app/public/*.html')
     .pipe(assets)
-    // .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', cleanCSS({ compatibility: '*' })))
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe(
@@ -112,6 +110,18 @@ gulp.task('html', ['styles'], () => {
       )
     )
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('minify', () => {
+  return gulp.src('dist/styles/*.css')
+    .pipe($.cleanCss({compatibility: '*'}))
+    .pipe(gulp.dest('dist/styles'));
+});
+
+ gulp.task('uglify', () => {
+  return gulp.src('dist/scripts/*.js')
+    .pipe($.uglify())
+    .pipe(gulp.dest('dist/scripts'));
 });
 
 gulp.task('hbs', () => {
@@ -252,7 +262,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'app/public']));
 
 gulp.task('serve', ['env-config'], () => {
   runSequence(
-    ['copy_bootstrap', 'copy_pdf', 'es6', 'svg', 'hbs', 'lint', 'scss-lint', 'styles'],
+    ['copy_pdf', 'es6', 'svg', 'hbs', 'lint', 'scss-lint', 'styles'],
     () => {
       browserSync({
         notify: false,
@@ -334,7 +344,6 @@ gulp.task('build', ['clean', 'env-config'], () => {
     'es6',
     'hbs',
     [
-      'copy_bootstrap',
       'copy_pdf',
       'svg',
       'lint',
@@ -343,6 +352,7 @@ gulp.task('build', ['clean', 'env-config'], () => {
       'extras',
       'copy-public'
     ],
+    ['minify', 'uglify'],
     () => gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }))
   );
 });

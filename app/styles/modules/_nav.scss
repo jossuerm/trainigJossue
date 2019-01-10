@@ -1,10 +1,11 @@
 .#{$prefix}-m-header {
   .container {
-    padding: 0;
     margin: 0;
+    padding: 0;
+
     @include breakpoint('phone-up') {
-      margin-right: auto;
       margin-left: auto;
+      margin-right: auto;
       padding-left: 15px;
       padding-right: 15px;
     }
