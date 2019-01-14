@@ -23,44 +23,44 @@
 }
 
 .show-mobile {
-  @include breakpoint("phone-up"){
+  @include breakpoint('phone-up') {
     display: none;
   }
 }
 
 .link-container {
   color: $color-red;
-  font-family: "Montserrat-SemiBold";
+  font-family: 'Montserrat-SemiBold';
 }
 
 .pointer-text {
   .link-container {
     color: $color-red;
-    font-family: "Montserrat-SemiBold";
+    font-family: 'Montserrat-SemiBold';
     margin-top: .1em;
   }
 }
 
 .show-desktop {
-  @include breakpoint("phone") {
+  @include breakpoint('phone') {
     display: none;
   }
 }
 
-.row-eq-height{
-  @include breakpoint("phone-up") {
-      display: flex;
+.row-eq-height {
+  @include breakpoint('phone-up') {
+    display: flex;
   }
 }
 
 //color classes for any text
 
 .red-color {
-  color: $color_red;
+  color: $color-red;
 }
 
 .gray-color {
-  color: $color_gray;
+  color: $color-gray;
 }
 
 .turquoise-color {

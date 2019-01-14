@@ -5,12 +5,7 @@
 $font-url: '../fonts';
 
 $fonts: (
-  'Montserrat-Light',
-  'Montserrat-SemiBold',
-  'Comfortaa-Bold',
-  'Comfortaa-Regular',
-  'Quicksand-bold',
-  'Bringshoot'
+  'Quicksand-bold'
 );
 
 @each $family in $fonts {
