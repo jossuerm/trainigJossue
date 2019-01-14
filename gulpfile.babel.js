@@ -86,7 +86,7 @@ gulp.task('styles', () =>
         .sync({
           outputStyle: 'expanded',
           precision: 10,
-          includePaths: ['.']
+          includePaths: ['.', 'node_modules/bootstrap/']
         })
         .on('error', $.sass.logError)
     )
@@ -270,7 +270,8 @@ gulp.task('serve', ['env-config'], () => {
         server: {
           baseDir: ['.tmp', 'app/public/', 'app/'],
           routes: {
-            '/bower_components': 'bower_components'
+            '/bower_components': 'bower_components',
+            '/node_modules': 'node_modules'
           }
         }
       });
