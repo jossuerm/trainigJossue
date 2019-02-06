@@ -19,10 +19,16 @@
           <h2>this is the {{ page }} page</h2>
       {{/block}}
     </div>
+    {{#if global.isi.tray }}
+      {{> global/isi location="tray" }}
+    {{/if}}
 
-    {{#block "footer"}}
-      {{> global/footer }}
-    {{/block}}
+    <div class="no-gutters row footer">
+      {{#block "footer"}}
+        {{> global/isi location="persistent-bottom" }}
+        {{> global/footer }}
+      {{/block}}
+    </div>
 
     {{#block "scripts"}}
       {{> global/scripts }}

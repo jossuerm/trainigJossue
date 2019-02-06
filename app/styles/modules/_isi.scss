@@ -1,0 +1,118 @@
+// $isi-sidebar-needed: if you set `false`, make sure
+// that `const minScreenSizeForTray` is alse `false`
+// on app/scripts/es6/modules/isi.js
+// only values accepted for this size: true or false
+$isi-sidebar-needed: true;
+
+// $isi-bottom-tray-start: value must be a valid parameter
+// for `@mixin breakpoint`
+$isi-bottom-tray-start: 'desktop-down';
+
+$isi-tray-width: 350px;
+$isi-tray-bg: $color-light-gray;
+$isi-tray-scroll-indicator: $color-gray;
+$isi-tray-scroll-bar: $color-med-gray;
+
+
+@mixin isi-sidebar {
+  &.tray {
+    bottom: 0;
+    height: 100vh;
+    left: auto;
+    padding: 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: $isi-tray-width;
+
+    .isi-content {
+      overflow: hidden;
+      padding: 20px;
+
+      .main-content {
+        display: block;
+        height: calc(100% - 50px);
+        max-height: calc(92vh - 50px);
+        overflow: hidden;
+        padding-right: 15%;
+        touch-action: none;
+
+        // sass-lint:disable-all
+        .iScrollVerticalScrollbar {
+          position: absolute;
+          width: 7px;
+          height: calc(92vh - 50px);
+          bottom: 13px;
+          top: 103px;
+          right: 28px;
+          background-color: $isi-tray-scroll-bar;
+
+          .iScrollIndicator {
+            position: absolute;
+            width: 100%;
+            background-color: $isi-tray-scroll-indicator;
+          }
+        }
+        // sass-lint:enable-all
+      }
+    }
+  }
+}
+
+@mixin isi-bottom {
+  &.tray {
+    bottom: 0;
+    display: block;
+    height: 160px;
+    left: 0;
+    padding: 0;
+    position: fixed;
+    top: unset;
+    width: 100%;
+
+    .isi-content {
+      display: block;
+      height: 160px;
+      padding: 10px 20px;
+      position: static;
+      width: 100%;
+    }
+  }
+
+  // sass-lint:disable-all
+  .iScrollVerticalScrollbar {
+    display: none;
+  }
+  // sass-lint:enable-all
+}
+
+.isi {
+  &.tray {
+    background: $isi-tray-bg;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+
+    &.hide-tray {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  @if $isi-sidebar-needed == true {
+    @include isi-sidebar;
+    @include breakpoint($isi-bottom-tray-start) {
+      @include isi-bottom;
+    }
+  } @else if $isi-sidebar-needed == false {
+    @include isi-bottom;
+  }
+
+  .isi-content {
+    padding: 20px;
+
+    .isi-header {
+      h1 {
+        margin: 0 0 20px;
+      }
+    }
+  }
+}

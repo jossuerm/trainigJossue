@@ -1,43 +1,74 @@
-import $ from 'jquery';
-import { $window } from '../helpers/animations/consts';
+import IScroll from 'iscroll';
+import { isMobile } from 'mobile-device-detect';
+
+const docEl = document.documentElement,
+      footerEl = document.querySelector('.footer'),
+      // set it "false" if you don't need a sidebar tray,
+      // should be an intenger number that represents the
+      // breakpoint on which the sidebar tray should
+      // dissappear
+      minScreenSizeForTray = 1200,
+      scrollWrapperEl = document.querySelector('.scroll-wrapper'),
+      scrollContainerEl = document.querySelector('.isi.tray');
+
+let iScroll;
 export default () => {
-
-  let $seeMoreWrapper = $('.isi-expansion-toggle'),
-      seeWrapperHeight = $seeMoreWrapper.height(),
-      $isiModule = $('#isi'),
-      viewPortBottom = null,
-      isiModulePosition = null;
-
-  function checkIfVisible(initialLoad) {
-    seeWrapperHeight = $seeMoreWrapper.height();
-    viewPortBottom = window.innerHeight;
-    isiModulePosition = $isiModule.position();
-
-    let $scrollTop = $window.scrollTop();
-    viewPortBottom = $scrollTop + window.innerHeight;
-
-    let lowestVisiblePoint = viewPortBottom - seeWrapperHeight;
-
-    //If it is the initialLoad just hide or show the ISI tray without animation
-    if (lowestVisiblePoint >= isiModulePosition.top) {
-      initialLoad ? $seeMoreWrapper.hide() : $seeMoreWrapper.fadeOut(100);
-    } else {
-      initialLoad ? $seeMoreWrapper.show() : $seeMoreWrapper.fadeIn(100);
-    }
+  if (minScreenSizeForTray && !isMobile && docEl.clientWidth >= minScreenSizeForTray) {
+    setUpScroll();
+    window.addEventListener('resize', updateScrollDimensions);
   }
 
-  function init() {
-    checkIfVisible(true);
-
-    $(window).on('scroll', function() {
-      checkIfVisible();
-    });
-    $(window).on('resize', function() {
-      checkIfVisible();
-    });
+  // If the footer ISI is visible on the page, avoid
+  // overlapping from the tray
+  if (docEl.scrollHeight === window.innerHeight) {
+    hideTray();
   }
 
-  $(document).ready(function() {
-    init();
+  window.addEventListener('scroll', handleScroll);
+};
+
+const handleScroll = () => {
+  const footerHeight = ~~footerEl.clientHeight - 100,
+        docHeight = docEl.scrollHeight,
+        windowHeight = window.innerHeight,
+        windowScrollTop = (window.pageYOffset || docEl.scrollTop) - (docEl.clientTop || 0),
+        scrollLimit = docHeight - (windowHeight + windowScrollTop);
+
+  footerHeight > scrollLimit ? hideTray() : showTray();
+};
+
+const hideTray = () => {
+  scrollContainerEl.classList.add('hide-tray');
+};
+
+const setUpScroll = () => {
+  iScroll = new IScroll(scrollWrapperEl, {
+    scrollbars: 'custom',
+    interactiveScrollbars: true,
+    mouseWheel: true,
+    click: true,
+    disableTouch: false
   });
+
+  // Auto-refreshing the iScroll object after 4 miliseconds
+  // this isn't a best practice but is used due an issue
+  // on calc that the IScroll library makes in some browsers.
+  setTimeout(() => {
+    iScroll.refresh();
+  }, 400);
+};
+
+const showTray = () => {
+  scrollContainerEl.classList.remove('hide-tray');
+};
+
+const updateScrollDimensions = () => {
+  if (!isMobile) {
+    iScroll.destroy();
+    setUpScroll();
+  }
+
+  if (docEl.clientWidth < minScreenSizeForTray) {
+    iScroll.destroy();
+  }
 };
