@@ -1,0 +1,9 @@
+<div class="{{ global.prefix }}-m-exit-modal">
+  {{#extend "global/base-modal" data=global.modals.exitModal prefix=global.prefix }}
+    {{#content "modal-body" mode="prepend"}}
+      <p>{{ data.bodyCopy1 }}</p>
+      <p>{{ data.bodyCopy2 }}</p>
+      <button type="button" class="modal-leave-btn">Continue</button>
+    {{/content}}
+  {{/extend}}
+</div>

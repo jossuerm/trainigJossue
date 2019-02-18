@@ -19,6 +19,13 @@ module.exports = {
           'Nulla in diam eu justo placerat finibus.'
         ]
       }
+    },
+    modals: {
+      exitModal: {
+        id: 'exit-modal',
+        bodyCopy1: 'You are leaving the current site.',
+        bodyCopy2: 'Click below if you wish to proceed.'
+      }
     }
   },
   pages: {

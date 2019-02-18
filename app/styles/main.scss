@@ -25,8 +25,9 @@ $images-path: '/images/';
 // Custom Modules
 @import 'modules/footer';
 @import 'modules/nav';
-@import 'modules/modal';
+@import 'modules/base-modal';
 @import 'modules/isi';
+@import 'modules/exit-modal';
 
 // Pages
 @import 'pages/global';
