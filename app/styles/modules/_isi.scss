@@ -1,8 +1,8 @@
 // $isi-sidebar-needed: if you set `false`, make sure
-// that `const minScreenSizeForTray` is alse `false`
+// that `const minScreenSizeForTray` is also `false`
 // on app/scripts/es6/modules/isi.js
 // only values accepted for this size: true or false
-$isi-sidebar-needed: true;
+$isi-sidebar-needed: false;
 
 // $isi-bottom-tray-start: value must be a valid parameter
 // for `@mixin breakpoint`

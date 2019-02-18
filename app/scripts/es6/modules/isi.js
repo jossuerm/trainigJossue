@@ -4,10 +4,10 @@ import { isMobile } from 'mobile-device-detect';
 const docEl = document.documentElement,
       footerEl = document.querySelector('.footer'),
       // set it "false" if you don't need a sidebar tray,
-      // should be an intenger number that represents the
+      // should be an Integer number that represents the
       // breakpoint on which the sidebar tray should
-      // dissappear
-      minScreenSizeForTray = 1200,
+      // disappear
+      minScreenSizeForTray = false,
       scrollWrapperEl = document.querySelector('.scroll-wrapper'),
       scrollContainerEl = document.querySelector('.isi.tray');
 
@@ -38,7 +38,9 @@ const handleScroll = () => {
 };
 
 const hideTray = () => {
-  scrollContainerEl.classList.add('hide-tray');
+  if(scrollContainerEl) {
+    scrollContainerEl.classList.add('hide-tray');
+  }
 };
 
 const setUpScroll = () => {
@@ -59,7 +61,9 @@ const setUpScroll = () => {
 };
 
 const showTray = () => {
-  scrollContainerEl.classList.remove('hide-tray');
+  if(scrollContainerEl) {
+    scrollContainerEl.classList.remove('hide-tray');
+  }
 };
 
 const updateScrollDimensions = () => {

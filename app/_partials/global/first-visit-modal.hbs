@@ -1,0 +1,7 @@
+<div class="{{ global.prefix }}-m-first-visit-modal">
+  {{#extend "global/base-modal" data=global.modals.firstVisitModal prefix=global.prefix }}
+    {{#content "modal-body" mode="prepend"}}
+      <p>{{ data.bodyCopy }}</p>
+    {{/content}}
+  {{/extend}}
+</div>

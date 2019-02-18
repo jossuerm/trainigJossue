@@ -34,9 +34,15 @@
       {{> global/scripts }}
     {{/block}}
 
-    {{#block "exit-modal"}}
-      {{> global/exit-modal }}
-    {{/block}}
+    {{#if global.modals.firstVisitModal.enable }}
+      {{> global/first-visit-modal }}
+    {{/if}}
+
+    {{#if global.modals.exitModal.enable }}
+      {{#block "exit-modal"}}
+        {{> global/exit-modal }}
+      {{/block}}
+    {{/if}}
 
   </body>
 </html>
