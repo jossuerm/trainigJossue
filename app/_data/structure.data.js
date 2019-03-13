@@ -7,11 +7,11 @@ module.exports = {
   global: {
     prefix,
     ga: {
-      enabled: true,
+      enabled: false,
       id: 'UA-XXXXX-Y'
     },
     gtm: {
-      enabled: true,
+      enabled: false,
       id: 'GTM-XXXX'
     },
     isi: {
