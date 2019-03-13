@@ -6,6 +6,14 @@ import messenger from '../_pages/messenger';
 module.exports = {
   global: {
     prefix,
+    ga: {
+      enabled: true,
+      id: 'UA-XXXXX-Y'
+    },
+    gtm: {
+      enabled: true,
+      id: 'GTM-XXXX'
+    },
     isi: {
       tray: false,
       title: 'What is Lorem Ipsum?',
@@ -22,12 +30,12 @@ module.exports = {
     },
     modals: {
       firstVisitModal: {
-        enable: false,
+        enabled: false,
         id: 'first-visit-modal',
         bodyCopy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum varius nisi a lobortis. Morbi est nulla, ultrices ac leo sit amet, tincidunt laoreet mauris. Ut in imperdiet erat. Morbi iaculis lectus id tellus fringilla, vitae cursus mauris luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
       },
       exitModal: {
-        enable: false,
+        enabled: false,
         id: 'exit-modal',
         bodyCopy1: 'You are leaving the current site.',
         bodyCopy2: 'Click below if you wish to proceed.'

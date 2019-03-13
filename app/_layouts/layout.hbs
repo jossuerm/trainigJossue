@@ -6,6 +6,13 @@
   {{/block}}
 
   <body class="{{ global.prefix }}-p {{ page }}-page" >
+    {{#if global.gtm.enabled }}
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ global.gtm.id }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {{/if}}
+
     {{#block "svgs"}}
       {{> global/svgs }}
     {{/block}}
@@ -34,11 +41,11 @@
       {{> global/scripts }}
     {{/block}}
 
-    {{#if global.modals.firstVisitModal.enable }}
+    {{#if global.modals.firstVisitModal.enabled }}
       {{> global/first-visit-modal }}
     {{/if}}
 
-    {{#if global.modals.exitModal.enable }}
+    {{#if global.modals.exitModal.enabled }}
       {{#block "exit-modal"}}
         {{> global/exit-modal }}
       {{/block}}
