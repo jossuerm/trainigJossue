@@ -15,8 +15,8 @@ import handlebarHelpers from './app/_helpers/helpers.js';
 import layouts from 'handlebars-layouts';
 import handlebars from 'handlebars';
 import glob from 'glob';
-import cleanCSS from 'gulp-clean-css';
 import sassLint from 'gulp-sass-lint';
+import mainBowerFiles from 'main-bower-files';
 
 // Register helpers
 handlebars.registerHelper(layouts(handlebars));
@@ -237,7 +237,11 @@ gulp.task('images', () =>
 gulp.task('fonts', () => {
   return gulp
     .src(
-      require('main-bower-files')({
+      mainBowerFiles({
+        paths: {
+          bowerDirectory: 'node_modules',
+          bowerJson: 'package.json',
+        },
         filter: '**/*.{eot,svg,ttf,woff,woff2}'
       }).concat('app/fonts/**/*')
     )
@@ -262,7 +266,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'app/public']));
 
 gulp.task('serve', ['env-config'], () => {
   runSequence(
-    ['copy_pdf', 'es6', 'svg', 'hbs', 'lint', 'scss-lint', 'styles'],
+    ['copy_pdf', 'es6', 'svg', 'hbs', 'lint', 'scss-lint', 'styles', 'fonts'],
     () => {
       browserSync({
         notify: false,
@@ -291,8 +295,7 @@ gulp.task('serve', ['env-config'], () => {
       gulp.watch('app/images/svg/*.svg', ['svg']);
       gulp.watch('app/styles/**/*.scss', ['styles']);
       gulp.watch('app/scripts/es6/**/*.js', ['lint', 'es6']);
-      //gulp.watch('app/fonts/**/*', ['fonts']);
-      //gulp.watch('bower.json', ['wiredep', 'fonts', 'hbs']);
+      gulp.watch('app/fonts/**/*', ['fonts']);
     }
   );
 });
@@ -350,6 +353,7 @@ gulp.task('build', ['clean', 'env-config'], () => {
       'lint',
       'html',
       'images',
+      'fonts',
       'extras',
       'copy-public'
     ],
