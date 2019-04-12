@@ -1,10 +1,10 @@
 import { prefix } from '../helpers/constants';
 
 export default () => {
-  let $modal          = $(`.${prefix}-m-first-visit-modal #first-visit-modal`),
-      openDelay       = 10000,
-      closeDelay      = 13000,
-      isFirstVisit    = localStorage.getItem('isFirstVisit');
+  const $modal      = $(`.${prefix}-m-first-visit-modal #first-visit-modal`);
+  const openDelay   = 10000;
+  const closeDelay  = 13000;
+  let isFirstVisit  = localStorage.getItem('isFirstVisit');
 
   // first visit
   if (isFirstVisit === null) {
@@ -20,4 +20,4 @@ export default () => {
     isFirstVisit = false;
     localStorage.setItem('isFirstVisit', isFirstVisit);
   }
-}
+};

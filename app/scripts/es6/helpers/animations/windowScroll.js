@@ -13,11 +13,11 @@ export function windowscroll() {
     headerWrapOffset = $header.offset().top;
   }
 
-  var headerDefinedOffset = $header.attr('data-sticky-offset');
+  const headerDefinedOffset = $header.attr('data-sticky-offset');
   if (typeof headerDefinedOffset !== 'undefined') {
     if (headerDefinedOffset === 'full') {
       headerWrapOffset = $window.height();
-      var headerOffsetNegative = $header.attr('data-sticky-offset-negative');
+      const headerOffsetNegative = $header.attr('data-sticky-offset-negative');
       if (typeof headerOffsetNegative !== 'undefined') {
         headerWrapOffset = headerWrapOffset - headerOffsetNegative - 1;
       }
@@ -28,13 +28,18 @@ export function windowscroll() {
 }
 
 export function debounce(func, wait, immediate) {
-  var timeout, args, context, timestamp, result;
+  let timeout;
+  let args;
+  let context;
+  let timestamp;
+  let result;
+
   return function() {
     context = this;
     args = arguments;
     timestamp = new Date();
-    var later = function() {
-      var last = new Date() - timestamp;
+    const later = function() {
+      const last = new Date() - timestamp;
       if (last < wait) {
         timeout = setTimeout(later, wait - last);
       } else {
@@ -44,7 +49,7 @@ export function debounce(func, wait, immediate) {
         }
       }
     };
-    var callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
     if (!timeout) {
       timeout = setTimeout(later, wait);
     }

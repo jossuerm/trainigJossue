@@ -31,6 +31,11 @@
     "space-infix-ops": ["error", {"int32Hint": true}],
     "comma-spacing": [1, {"before": false, "after": true}],
     "space-in-parens": "error",
-    "space-before-function-paren": ["error", "never"]
+    "space-before-function-paren": ["error", "never"],
+    "one-var": ["error", { "var": "never", "let": "never", "const": "never" }],
+    "semi": ["error", "always"],
+    "no-var": "error",
+    "prefer-template": "error",
+    "no-eval": "error"
   }
 }

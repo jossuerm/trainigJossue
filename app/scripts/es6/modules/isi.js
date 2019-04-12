@@ -1,15 +1,15 @@
 import IScroll from 'iscroll';
 import { isMobile } from 'mobile-device-detect';
 
-const docEl = document.documentElement,
-      footerEl = document.querySelector('.footer'),
+const docEl = document.documentElement;
+const footerEl = document.querySelector('.footer');
       // set it "false" if you don't need a sidebar tray,
       // should be an Integer number that represents the
       // breakpoint on which the sidebar tray should
       // disappear
-      minScreenSizeForTray = false,
-      scrollWrapperEl = document.querySelector('.scroll-wrapper'),
-      scrollContainerEl = document.querySelector('.isi.tray');
+const minScreenSizeForTray = false;
+const scrollWrapperEl = document.querySelector('.scroll-wrapper');
+const scrollContainerEl = document.querySelector('.isi.tray');
 
 let iScroll;
 export default () => {
@@ -28,11 +28,11 @@ export default () => {
 };
 
 const handleScroll = () => {
-  const footerHeight = ~~footerEl.clientHeight - 100,
-        docHeight = docEl.scrollHeight,
-        windowHeight = window.innerHeight,
-        windowScrollTop = (window.pageYOffset || docEl.scrollTop) - (docEl.clientTop || 0),
-        scrollLimit = docHeight - (windowHeight + windowScrollTop);
+  const footerHeight = ~~footerEl.clientHeight - 100;
+  const docHeight = docEl.scrollHeight;
+  const windowHeight = window.innerHeight;
+  const windowScrollTop = (window.pageYOffset || docEl.scrollTop) - (docEl.clientTop || 0);
+  const scrollLimit = docHeight - (windowHeight + windowScrollTop);
 
   footerHeight > scrollLimit ? hideTray() : showTray();
 };

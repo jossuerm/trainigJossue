@@ -127,15 +127,15 @@ export const formSelect = {
   WV: 'West Virginia',
   WI: 'Wisconsin',
   WY: 'Wyoming'
-}
+};
 
 export const describeSelectValues = {
   HCP: 'HCP',
-  Other: 'Other',
-}
+  Other: 'Other'
+};
 
 export const selectAgeLabels = {
   careIRD: 'How old is the person you care for? ',
   knowIRD: 'How old is the person you know?',
   careVI: 'How old is the person you care for or know?'
-}
+};

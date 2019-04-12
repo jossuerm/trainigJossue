@@ -16,7 +16,6 @@ let isSuperFishInitalized = false;
 export function headerInit() {
   superfishInit();
   stickyMenu();
-
 }
 
 export function superfishInit() {
@@ -33,7 +32,7 @@ export function superfishInit() {
       animationOut: { opacity: 'hide' },
       cssArrows: false,
       onShow: function() {
-        var megaMenuContent = $(this);
+        const megaMenuContent = $(this);
         if (
           megaMenuContent.hasClass('mega-menu-content') &&
           megaMenuContent.find('.widget').length > 0
@@ -114,10 +113,10 @@ export function stickyMenuClass() {
   } else {
     newClassesArray = '';
   }
-  var noOfNewClasses = newClassesArray.length;
+  const noOfNewClasses = newClassesArray.length;
 
   if (noOfNewClasses > 0) {
-    var i = 0;
+    let i = 0;
     for (i = 0; i < noOfNewClasses; i++) {
       if (newClassesArray[i] === 'not-dark') {
         $header.removeClass('dark');

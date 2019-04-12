@@ -17,8 +17,8 @@ export function setParallaxDimensions() {
     $body.hasClass('device-md')
   ) {
     headerH = $header.height();
-    let isiH = $isiExpansionToggle.height(),
-      parallaxElHeight = $window.outerHeight() - isiH - headerH;
+    const isiH = $isiExpansionToggle.height();
+    let parallaxElHeight = $window.outerHeight() - isiH - headerH;
 
     //Set a min height
     parallaxElHeight = parallaxElHeight > 350 ? parallaxElHeight : 350;

@@ -3,10 +3,10 @@ import { prefix, heightNav } from '../helpers/constants';
 
 export default () => {
 
-  let $nav       = $(`${prefix}-m-nav`),
-      $navMenu   = $nav.find('.nav-menu'),
-      $navMobile = $nav.find('.nav-mobile'),
-      $body      = $('body');
+  const $nav       = $(`${prefix}-m-nav`);
+  const $navMenu   = $nav.find('.nav-menu');
+  const $navMobile = $nav.find('.nav-mobile');
+  const $body      = $('body');
 
   $nav.on('click', '.mobile-toggle-menu', function() {
     let $this = $(this);
@@ -33,4 +33,4 @@ export default () => {
     .toggleClass('open close')
     .siblings('.submenu').toggle(isClosed);
   }
-}
+};

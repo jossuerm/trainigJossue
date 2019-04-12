@@ -43,7 +43,7 @@ export function animations() {
     return true;
   }
 
-  var $dataAnimateEl = $('[data-animate]');
+  const $dataAnimateEl = $('[data-animate]');
   if ($dataAnimateEl.length > 0) {
     if (
       $body.hasClass('device-xl') ||
@@ -51,15 +51,15 @@ export function animations() {
       $body.hasClass('device-md')
     ) {
       $dataAnimateEl.each(function() {
-        var element = $(this),
-          animationOut = element.attr('data-animate-out'),
-          animationDelay = element.attr('data-delay'),
-          animationDelayOutTime = element.attr('data-delay-out') || 3000,
-          animationDelayTime = animationDelay ? Number(animationDelay) : 0;
+        const element = $(this);
+        const animationOut = element.attr('data-animate-out');
+        const animationDelay = element.attr('data-delay');
+        const animationDelayOutTime = element.attr('data-delay-out') || 3000;
+        const animationDelayTime = animationDelay ? Number(animationDelay) : 0;
 
         if (!element.hasClass('animated')) {
           element.addClass('not-animated');
-          var elementAnimation = element.attr('data-animate');
+          const elementAnimation = element.attr('data-animate');
           element.appear(
             function() {
               if (animationDelayTime > 0) {
@@ -86,7 +86,7 @@ export function animations() {
 }
 
 function addAnimationToel(element, elementAnimation) {
-  element.removeClass('not-animated').addClass(elementAnimation + ' animated');
+  element.removeClass('not-animated').addClass(`${elementAnimation} animated`);
 }
 
 export function roundedChart() {
@@ -94,13 +94,14 @@ export function roundedChart() {
 
   if ($roundedChartElems.length > 0) {
     $roundedChartElems.each(function() {
-      let $element = $(this),
-        svgId = $element.find('svg')[0].id,
-        duration = $element.data('duration');
+      const $element = $(this);
+      const svgId = $element.find('svg')[0].id;
+      const duration = $element.data('duration');
+
       if (!$element.hasClass('skills-animated')) {
         let chart = new Vivus(svgId, {
           type: 'sync',
-          duration: duration
+          duration
         });
         $element.appear(
           function() {
@@ -116,11 +117,11 @@ export function roundedChart() {
 }
 
 export function counter() {
-  var $counterEl = $('.counter:not(.counter-instant)');
+  const $counterEl = $('.counter:not(.counter-instant)');
   if ($counterEl.length > 0) {
     $counterEl.each(function() {
-      var element = $(this);
-      var counterElementComma = $(this)
+      const element = $(this);
+      let counterElementComma = $(this)
         .find('span')
         .attr('data-comma');
       if (!counterElementComma) {

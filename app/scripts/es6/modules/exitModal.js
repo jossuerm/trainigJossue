@@ -2,9 +2,9 @@ import { prefix } from '../helpers/constants';
 
 export default () => {
 
-  let $clickableSection = $('.leaving-modal-trigger'),
-      $leaveButton      = $(`.${prefix}-m-exit-modal .modal-leave-btn`),
-      urlToRedirectTo;
+  const $clickableSection = $('.leaving-modal-trigger');
+  const $leaveButton      = $(`.${prefix}-m-exit-modal .modal-leave-btn`);
+  let urlToRedirectTo;
 
   $clickableSection.on('click', function(e) {
     e.preventDefault();
@@ -15,4 +15,4 @@ export default () => {
   $leaveButton.on('click', function() {
     window.location.href = urlToRedirectTo;
   });
-}
+};

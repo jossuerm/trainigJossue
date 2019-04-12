@@ -25,7 +25,7 @@ export const orderFormConstructor = (formInfo) => {
   const newForm = $.param(form);
 
   return newForm;
-}
+};
 
 const initForm = () => ({
   'First name': '',

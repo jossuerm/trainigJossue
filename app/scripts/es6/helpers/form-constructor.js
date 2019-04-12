@@ -19,7 +19,7 @@ export const formConstructor = (formInfo) => {
     case formSelect.HCP:
       form['HCP Specialty'] = formInfo.describeValue.value;
       (formInfo.describeValue.value === formSelect.other) && (form['HCP Specialty Other'] = formInfo.describeValue.otherSpecialityValue);
-      break
+      break;
     case formSelect.other:
       form['Self Description Other'] = formInfo.describeValue.value;
       break;
@@ -30,7 +30,7 @@ export const formConstructor = (formInfo) => {
   const newForm = $.param(form);
 
   return newForm;
-}
+};
 
 const initForm = () => ({
   'Disease Interest - IRDs': 'X',

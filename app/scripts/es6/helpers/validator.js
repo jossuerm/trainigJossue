@@ -1,7 +1,7 @@
-const zipRegex = /^\d{5}(-\d{4})?(?!-)$/,
-      phoneRegex = /^\d{10}(-\d{4})?(?!-)$/,
-      numericRegex = /^\d+$/,
-      emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const zipRegex = /^\d{5}(-\d{4})?(?!-)$/;
+const phoneRegex = /^\d{10}(-\d{4})?(?!-)$/;
+const numericRegex = /^\d+$/;
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export const validateRequiredOnly = (value) => value.length > 0; // Validates input required only
 export const validateRequiredQuantity = (value) => value !== 0; // Validates input required only
@@ -17,10 +17,11 @@ export const validateToggleComponent = (info) => {
   info.isRequired && (isValid = validateRequiredOnly(info.value));
 
   return isValid;
-}
+};
+
 export const validateOnlyNumber = (e) => {
   const key = e.keyCode ? e.keyCode : e.which;
   if ((isNaN(String.fromCharCode(key)) && key !== 8) || key === 32) {
     return false;
   }
-}
+};

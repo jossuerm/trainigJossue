@@ -6,7 +6,7 @@ export function responsiveClasses() {
     return true;
   }
 
-  var jRes = jRespond([
+  const jRes = jRespond([
     {
       label: 'smallest',
       enter: 0,

@@ -2,7 +2,7 @@ export const createCookie = (name, value) => (document.cookie = `${name}=${value
 export const eraseCookie = (name) => createCookie(name, '', -1);
 
 export const readCookie = (name) => {
-    let nameEQ = name + '=';
+    let nameEQ = `${name}=`;
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
@@ -14,4 +14,4 @@ export const readCookie = (name) => {
       }
     }
     return null;
-}
+};
