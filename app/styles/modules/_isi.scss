@@ -72,7 +72,7 @@ $isi-tray-scroll-bar: $color-med-gray;
 @mixin isi-bottom {
   &.tray {
     bottom: 0;
-    box-shadow: -4px 1px 15px 0 rgba(0, 0, 0, .16);
+    box-shadow: -4px 1px 15px 0 $color-black-16;
     display: block;
     left: 0;
     max-height: 160px;

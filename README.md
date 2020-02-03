@@ -32,6 +32,24 @@ Gulp Webapp HBS
     - Run `gulp build` build frontend assets
     - Run `gulp copy` to copy all frontend assets into the backend directory
 
+## Bootstrap Select
+- Bootstrap select **v1.13.12** is part of this base project, to enable it please follow the steps:
+    - Go to `app/styles/vendors/bootstrap/_bootstrap.scss`, uncomment: `@import 'scss/dropdown';`
+    - Go to `app/styles/main.scss`, uncomment:
+      ```
+      @import 'sass/variables';
+      @import 'sass/bootstrap-select';
+      ```
+    - Add the markup wherever you need it.
+      ```
+      <select class="selectpicker">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Barbecue</option>
+      </select>
+      ```
+    - In case you need something specific please go to the oficial documentation: https://developer.snapappointments.com/bootstrap-select/
+
 ## Backend
 - More information to come, this is more of a high level overview
 - Install composer
