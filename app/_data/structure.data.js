@@ -1,4 +1,4 @@
-import { prefix } from '../scripts/es6/helpers/';
+import { prefix, floodlightClass, internalLinkClass } from '../scripts/es6/helpers/';
 
 import admin from '../_pages/admin';
 import messenger from '../_pages/messenger';
@@ -6,6 +6,8 @@ import messenger from '../_pages/messenger';
 module.exports = {
   global: {
     prefix,
+    floodlightClass,
+    internalLinkClass,
     ga: {
       enabled: false,
       id: 'UA-XXXXX-Y'
@@ -13,6 +15,14 @@ module.exports = {
     gtm: {
       enabled: false,
       id: 'GTM-XXXX'
+    },
+    fb: {
+      enabled: false,
+      id: '111111111111111'
+    },
+    fl: {
+      enabled: false,
+      id: '1234567'
     },
     isi: {
       tray: true,

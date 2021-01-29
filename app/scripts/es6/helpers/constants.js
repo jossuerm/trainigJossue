@@ -1,4 +1,6 @@
 export const prefix = 'base';
+export const floodlightClass = 'floodlight-tag';
+export const internalLinkClass = 'internal-link-tag';
 export const heightNav = 110;
 
 // Form constants

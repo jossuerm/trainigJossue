@@ -12,7 +12,9 @@ export default () => {
     urlToRedirectTo = $this.attr('modal-url');
   });
 
-  $leaveButton.on('click', function() {
-    window.location.href = urlToRedirectTo;
+  $leaveButton.on('click', function(e) {
+    e.preventDefault();
+    window.open(urlToRedirectTo, '_blank');
+    $leaveButton.parents('.modal').modal('hide');
   });
 };

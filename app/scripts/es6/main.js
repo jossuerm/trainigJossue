@@ -6,6 +6,7 @@ import nav from './modules/nav';
 import isi from './modules/isi';
 import firstVisit from './modules/first-visit-modal';
 import exitModal from './modules/exitModal';
+import floodlight from './modules/floodlight';
 
 //Vendors
 require('bootstrap/dist/js/bootstrap.min.js');
@@ -16,6 +17,7 @@ $(() => {
   utilsSetup();
   nav();
   isi();
+  floodlight();
 
   if($(`.${prefix}-m-first-visit-modal`).length) {
     firstVisit();

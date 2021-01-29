@@ -9,8 +9,15 @@
           <!-- The height is a placeholder for base purposes and should be removed -->
           <div id="pagetitle" style="height: 991px">
             <h1>Base project for websites</h1>
-            {{#if global.modals.exitModal.enable }}
+            {{#if global.modals.exitModal.enabled }}
               <button type="button" class="btn btn-primary leaving-modal-trigger" data-toggle="modal" data-target="#exit-modal" modal-url="https://www.google.com">Exit link</button>
+            {{/if}}
+            {{#if global.fl.enabled }}
+            <div>
+              <button type="button" class="btn btn-primary {{ global.floodlightClass}}" data-type="type1" data-category="cat1">Floodlight link</button>
+              <a href="./messenger" class="{{ global.internalLinkClass }}">Floodlight Internal link</a>
+              <a class="leaving-modal-trigger track-external-test" data-type="extType" data-category="extCat" data-toggle="modal" data-target="#exit-modal" modal-url="https://www.google.com">Floodlight External link</a>
+            </div>
             {{/if}}
           </div>
       </div>
